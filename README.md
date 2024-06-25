@@ -50,7 +50,7 @@
       - includes() 메소드로 특정 값 포함 확인
     - ES2017 ES8
       - async await
-      - Objdect 심화 메소드(졸려서 공부 못함)
+      - Object 심화 메소드(졸려서 공부 못함)
 
 ```javascript
 // ES7
