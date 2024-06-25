@@ -22,7 +22,7 @@
 - 표준이 정의되는 단계는??
 
   - Working Draft(WD) - 초안 (첫단계)
-  - Candidate Recommendation (CR) : 후보권고안 (컴토)
+  - Candidate Recommendation (CR) : 후보권고안 (검토)
   - Proposed Recommendation (PR) : 제안권고안 (완성된 문서 최종 승인)
   - W3C Recommendation(REC) : 권고안 (승인완료)
 
