@@ -29,6 +29,8 @@
 - null 과 undefined의 차이점은?
 - 자바스크립트에서 ?? vs || 의 차이점은?
 
+[Day1링크](https://github.com/leeseungje/FrontStudy2024/tree/main/Day1)
+
 ### Day2 (7/2 예정)
 
 - Transpiler와 Bundler는 각각 무엇인가요??
