@@ -51,6 +51,8 @@
 - React Hydrate는 무엇인가요??
 - Nextjs에서 app 라우터와 pages 라우터의 차이점은??
 
+[Day2링크](https://github.com/leeseungje/FrontStudy2024/tree/main/Day2)
+
 ### Day3
 
 **TODO : 개발 환경 준비**
