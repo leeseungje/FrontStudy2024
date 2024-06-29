@@ -71,10 +71,10 @@ yarn create vite
 
 - css minify
 - target es2015, es2020 비교해보기
-  - **es2015**
+  - **es2015**<br />
     ![alt text](image.png)
     ![alt text](image-1.png)
-  - **es2020**
+  - **es2020**<br />
     ![alt text](image-2.png)
     ![alt text](image-3.png)
   - 차이점을 모르겠습니다.
@@ -87,6 +87,7 @@ yarn create vite
   - 개발자 경험 향상
 
 3. 빌드 별과물을 index.js 하나의 파일로 만들기
+   - [vite설정](https://github.com/leeseungje/FrontStudy2024/blob/main/Day2/react/vite.config.ts)
 
 - plugin 검색 후 추가
 - Webpack과 vite를 비교해 주세요.
