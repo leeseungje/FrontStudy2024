@@ -87,10 +87,30 @@ yarn create vite
   - 개발자 경험 향상
 
 3. 빌드 별과물을 index.js 하나의 파일로 만들기
-   - [vite설정](https://github.com/leeseungje/FrontStudy2024/blob/main/Day2/react/vite.config.ts)
 
 - plugin 검색 후 추가
+  - [vite설정](https://github.com/leeseungje/FrontStudy2024/blob/main/Day2/react/vite.config.ts)
 - Webpack과 vite를 비교해 주세요.
+
+  1. 빌드 속도<br />
+     `Vite`: 개발 서버가 빠르게 시작하며, HMR(Hot Module Replacement) 속도가 빠릅니다. ES 모듈 기반으로, 변경된 모듈만 갱신합니다.<br />
+     `Webpack`: 초기 빌드 속도가 상대적으로 느리며, HMR 성능이 덜 최적화되어 있습니다.
+  2. 설정<br />
+     `Vite`: 설정이 간단하고 기본값으로도 충분한 기능을 제공합니다.<br />
+     `Webpack`: 설정이 복잡하고, 다양한 플러그인과 로더를 사용해 커스터마이즈가 가능합니다.
+  3. 생태계<br />
+     `Vite`: Vue, React 등 다양한 프레임워크와 잘 통합되며, 플러그인도 지속적으로 증가하고 있습니다.<br />
+     `Webpack`: 플러그인과 로더 생태계가 매우 방대하여, 복잡한 프로젝트에 적합합니다.
+  4. 번들링 방식<br />
+     `Vite`: 개발 시 ES 모듈을 사용하고, 프로덕션 시 Rollup을 사용하여 번들링합니다.<br />
+     `Webpack`: 번들링과 개발 서버를 모두 자체적으로 처리합니다.
+  5. 사용 사례<br />
+     `Vite`: 빠른 개발 환경이 필요한 프로젝트, 특히 Vue와 React 프로젝트에 적합합니다.<br />
+     `Webpack`: 대규모 애플리케이션이나 복잡한 설정이 필요한 프로젝트에 적합합니다.
+     요약<br />
+     `Vite는` 빠르고 간편한 개발 환경을 제공하며, 설정이 용이합니다.<br />
+     `Webpack`은 더 많은 기능과 설정 옵션을 제공하며, 복잡한 요구사항을 충족시킬 수 있습니다.
+
 - Event Loop에 대해서 설명해 주세요.
 - 마이크로 태스크 큐, 태스크 큐
 - var, let, const의 차이점에 대해 설명해 주세요.
