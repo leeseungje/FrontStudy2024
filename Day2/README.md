@@ -266,6 +266,8 @@ yarn create vite
         - 파일 시스템 기반 라우팅으로 직관적이고 이해하기 쉬움
         - 기존 Next.js 프로젝트와 호환
         - 정적 페이지 생성에 적합
+      - ***차이점***
+        - streaming SSR
 
   - [참조](https://yozm.wishket.com/magazine/detail/2324/)
 
