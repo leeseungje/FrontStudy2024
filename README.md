@@ -53,22 +53,32 @@
 
 [Day2링크](https://github.com/leeseungje/FrontStudy2024/tree/main/Day2)
 
-### Day3
+### Day3 (7/9 예정)
 
-**TODO : 개발 환경 준비**
+[API 샘플](./kjk7034/example/study-api/)에서 user 관련 CRUD 확인 가능
+
+- 데이터 Fetch
+  - SWR
+  - TanStack Query
+
+이전 스터디한 SSR, CSR, ISR 확인해보기.
+
+[Day3링크](https://github.com/leeseungje/FrontStudy2024/tree/main/Day3)
+
+### Day4
+
+React 상태 관리 다양하게 사용해보기.
+샘플 : 만들예정
 
 - React 상태 관리(하기 내용 각각 테스트 해보기 + 장단점 찾아보기 **실습**)
-  - useState 및 useReducer
+  - useReducer
   - Redux
   - MobX
   - Context API
   - Recoil
   - jotai
-- 데이터 Fetch(**실습**)
-  - SWR
-  - TanStack Query
 
-### Day4
+### Day5
 
 - React 톺아보기 Clear하기 [React 톺아보기 - 01. Preview ~ 04. Concurrent Render](https://goidle.github.io/)까지 읽고 이해해오기.
 
