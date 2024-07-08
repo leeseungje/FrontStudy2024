@@ -1,11 +1,6 @@
 {
   "users": [
     {
-      "id": "2",
-      "name": "Jane Smith",
-      "email": "jane.smith@example.com"
-    },
-    {
       "id": "d6b87dca-4a9a-46c4-8b3f-350b5d37cdde",
       "name": "네임",
       "email": "이메일@naver.com"

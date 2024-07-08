@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
+import useSWR, { mutate } from 'swr'
 
 interface User {
   id: string
@@ -10,28 +11,14 @@ interface User {
   email: string
 }
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
+
 const UserPage = () => {
   const pathname = usePathname()
   const router = useRouter()
   const id = pathname?.split('/')[2]
-  const [user, setUser] = useState<User | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const { data, error } = useSWR<User>(id ? `/api/user/${id}` : null, fetcher)
   const [deleting, setDeleting] = useState(false)
-
-  useEffect(() => {
-    if (id) {
-      fetch(`/api/user/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.message) {
-            setError(data.message)
-          } else {
-            setUser(data)
-          }
-        })
-        .catch((error) => setError('Failed to fetch user'))
-    }
-  }, [id])
 
   const handleDelete = async () => {
     setDeleting(true)
@@ -43,22 +30,23 @@ const UserPage = () => {
       if (response.ok) {
         alert('삭제했습니다. 목록 페이지로 이동합니다.')
         router.push(`/user`)
+        mutate(`/api/user/${id}`, null, false) // Remove the user from the cache
       } else {
         const data = await response.json()
-        setError(data.message || 'Failed to delete user')
+        alert(data.message || 'Failed to delete user')
         setDeleting(false)
       }
     } catch (error) {
-      setError('Failed to delete user')
+      alert('Failed to delete user')
       setDeleting(false)
     }
   }
 
   if (error) {
-    return <div>Error: {error}</div>
+    return <div>Error: {error.message}</div>
   }
 
-  if (!user) {
+  if (!data) {
     return <div>Loading...</div>
   }
 
@@ -66,13 +54,13 @@ const UserPage = () => {
     <div className="user-detail">
       <h1>User Detail</h1>
       <p>
-        <strong>ID:</strong> {user.id}
+        <strong>ID:</strong> {data.id}
       </p>
       <p>
-        <strong>Name:</strong> {user.name}
+        <strong>Name:</strong> {data.name}
       </p>
       <p>
-        <strong>Email:</strong> {user.email}
+        <strong>Email:</strong> {data.email}
       </p>
       <div className="actions">
         <button onClick={handleDelete} disabled={deleting} className={'btn-delete'}>
