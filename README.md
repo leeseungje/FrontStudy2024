@@ -53,7 +53,7 @@
 
 [Day2링크](https://github.com/leeseungje/FrontStudy2024/tree/main/Day2)
 
-### Day3 (7/9 예정)
+### Day3 (7/17 예정)
 
 [API 샘플](./kjk7034/example/study-api/)에서 user 관련 CRUD 확인 가능
 
@@ -65,12 +65,13 @@
 
 [Day3링크](https://github.com/leeseungje/FrontStudy2024/tree/main/Day3)
 
-### Day4
+### Day4 (7/23 예정)
 
-React 상태 관리 다양하게 사용해보기.
-샘플 : 만들예정
+Day3에서 진행한 User CRUD 관련 페이지를 state 구조로 변경해보세요.
+(ex: redux를 이용해서 상태관리 해보기)
 
-- React 상태 관리(하기 내용 각각 테스트 해보기 + 장단점 찾아보기 **실습**)
+- React 상태 관리 하고 싶은 것 **최소** 3개 써보기. (테스트 하면서 장단점 찾아보기 **실습**)
+
   - useReducer
   - Redux
   - MobX
@@ -78,15 +79,22 @@ React 상태 관리 다양하게 사용해보기.
   - Recoil
   - jotai
 
+- Next 스터디로 하고 싶은 것 제안하기.
+  - 해보고 싶은 것
+
 ### Day5
 
-- React 톺아보기 Clear하기 [React 톺아보기 - 01. Preview ~ 04. Concurrent Render](https://goidle.github.io/)까지 읽고 이해해오기.
+- 미정!!
 
-### 하고 싶은 분은 개인적으로 or 스터디 구성
+### 스터디로 괜찮다고 생각하는 주제.
 
-- [React Internals Deep Dive](https://jser.dev/series/react-source-code-walkthrough)
-  - 스터디에서 진행하려 했으나, 난이도와 시간이 오래 걸릴 것 같아서...
-    추후 다른 분들과 스터디를 해도 좋을 것 같습니다.
+- 하고 싶은 분은 개인적으로 or 스터디 구성
+
 - [벨로퍼트와 함께하는 모던 리액트](https://react.vlpt.us/)
   - redux를 사용 안 해봤다면, 참고해서 스터디 해도 좋을 것 같음.
   - 스터디 후 [Redux 톺아보기](https://goidle.github.io/redux/in-depth-redux/)를 보면 좋을 것 같음.
+- [React Internals Deep Dive](https://jser.dev/series/react-source-code-walkthrough)
+  - 스터디에서 진행하려 했으나, 난이도와 시간이 오래 걸릴 것 같아서...
+    추후 다른 분들과 스터디를 해도 좋을 것 같습니다.
+- [React 톺아보기 - 01. Preview ~ 04. Concurrent Render](https://goidle.github.io/)
+  - 위 React Internals Deep Dive를 읽기 전 먼저 보고 진행 여부 파악해 보기. (난이도)
