@@ -55,7 +55,7 @@
 
 ### Day3 (7/17 예정)
 
-[API 샘플](./kjk7034/example/study-api/)에서 user 관련 CRUD 확인 가능
+[API 샘플](https://github.com/kjk7034/fe-study-2024/tree/main/kjk7034/example/study-api)에서 user 관련 CRUD 확인 가능
 
 - 데이터 Fetch
   - SWR
