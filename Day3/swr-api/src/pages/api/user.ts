@@ -10,7 +10,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   switch (method) {
     case 'GET':
       const { id } = req.query
-
       if (id) {
         // 특정 사용자 조회
         const user = data.users.find((user: any) => user.id === id)
@@ -31,7 +30,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         const newUser: User = {
           id: uuidv4(),
           name,
-          email
+          email,
         }
         data.users.push(newUser)
         writeData(data)
@@ -86,7 +85,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 export const config = {
   api: {
     bodyParser: {
-      sizeLimit: '2mb'
-    }
-  }
+      sizeLimit: '2mb',
+    },
+  },
 }
