@@ -7,7 +7,9 @@ export const fetcher = async (url: string) => {
   return response.json()
 }
 
-export interface CreateUserParams {
+// 사용자를 생성및 업데이트때 필요한 매개변수의 타입
+export interface UserParams {
+  id?: string
   name: string
   email: string
 }
@@ -21,7 +23,7 @@ export interface User {
 export const createUserFn = async ({
   name,
   email,
-}: CreateUserParams): Promise<User> => {
+}: UserParams): Promise<User> => {
   const response = await fetch('/api/user', {
     method: 'POST',
     headers: {
@@ -38,17 +40,11 @@ export const createUserFn = async ({
   return response.json()
 }
 
-export interface UpdateUserParams {
-  id: string
-  name: string
-  email: string
-}
-
 export const updateUserFn = async ({
   id,
   name,
   email,
-}: UpdateUserParams): Promise<User> => {
+}: UserParams): Promise<User> => {
   const response = await fetch(`/api/user/${id}`, {
     method: 'PUT',
     headers: {
