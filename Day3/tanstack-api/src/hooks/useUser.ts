@@ -23,7 +23,9 @@ import { fetcher, User } from '@/utils/api'
 export const useUsers = (id?: string) => {
   const { data, error, isLoading } = useQuery<User[] | User>({
     queryKey: ['users'],
-    queryFn: () => fetcher(id ? `/api/user/${id}` : '/api/user'),
+    queryFn: () =>
+      fetcher(id ? `/api/user/${id}` : '/api/user', { cache: 'no-store' }),
+    // cache: 'no-store'를 설정하여, 데이터가 항상 네트워크에서 가져와지도록 보장
   })
 
   return {

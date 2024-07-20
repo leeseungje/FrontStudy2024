@@ -1,5 +1,5 @@
-export const fetcher = async (url: string) => {
-  const response = await fetch(url)
+export const fetcher = async (url: string, options?: RequestInit) => {
+  const response = await fetch(url, { ...options, cache: 'no-store' })
   if (!response.ok) {
     const errorData = await response.json()
     throw new Error(errorData.message || 'Network response was not ok')
@@ -7,7 +7,7 @@ export const fetcher = async (url: string) => {
   return response.json()
 }
 
-// 사용자를 생성및 업데이트때 필요한 매개변수의 타입
+// 사용자를 생성및 업데이트때 필요한 매개변수의 타
 export interface UserParams {
   id?: string
   name: string
