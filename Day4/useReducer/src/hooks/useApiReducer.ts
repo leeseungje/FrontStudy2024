@@ -1,4 +1,4 @@
-import { useReducer, useEffect, useCallback } from 'react'
+import { useReducer, useCallback } from 'react'
 
 /**
  * State 인터페이스
