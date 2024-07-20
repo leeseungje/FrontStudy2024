@@ -8,7 +8,7 @@ export const readData = () => {
   return JSON.parse(fileContents)
 }
 
-export const writeData = (data: User) => {
+export const writeData = (data: { users: User[] }) => {
   const filePath = path.join(process.cwd(), 'public', 'users.json')
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2))
 }

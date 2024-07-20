@@ -2,17 +2,14 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { useUsers, useDeleteUser } from '@/hooks'
+import { useUsers } from '@/hooks'
+import { useDeleteUser } from '@/hooks/useDeleteUser'
 
 const UserPage = () => {
   const pathname = usePathname()
   const id = pathname?.split('/')[2]
-  const { data: user, isLoading, isError } = useUsers(id)
+  const { data: user, isLoading } = useUsers(id)
   const { deleteUser, deleting } = useDeleteUser(id)
-
-  if (isError) {
-    return <div>Error: {isError.message}</div>
-  }
 
   if (isLoading || !user || Array.isArray(user)) {
     return <div>Loading...</div>

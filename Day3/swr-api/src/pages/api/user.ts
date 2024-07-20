@@ -1,11 +1,11 @@
 import { User } from '@/types'
-import { readData, writeData } from '@/utils'
+import { readData, writeData } from '@/utils/data'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { v4 as uuidv4 } from 'uuid'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req
-  const data = readData()
+  let data = readData()
 
   switch (method) {
     case 'GET':
@@ -32,7 +32,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
           name,
           email,
         }
-        data.users.push(newUser)
+        data.users.unshift(newUser) // 새로운 사용자를 목록의 맨 위에 추가
         writeData(data)
 
         res.status(201).json(newUser)
@@ -47,9 +47,12 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         const { id, name, email } = req.body
         const userIndex = data.users.findIndex((user: any) => user.id === id)
         if (userIndex !== -1) {
-          data.users[userIndex] = { id, name, email }
+          // 기존 사용자를 수정하고 맨 위로 이동
+          data.users.splice(userIndex, 1)
+          const updatedUser: User = { id, name, email }
+          data.users.unshift(updatedUser)
           writeData(data)
-          res.status(200).json(data.users[userIndex])
+          res.status(200).json(updatedUser)
         } else {
           res.status(404).json({ message: 'User not found' })
         }

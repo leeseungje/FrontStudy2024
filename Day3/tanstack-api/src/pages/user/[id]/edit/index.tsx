@@ -7,7 +7,7 @@ import { useUsers, useUpdateUser } from '@/hooks'
 const EditUserPage = () => {
   const pathname = usePathname()
   const id = pathname?.split('/')[2]
-  const { data: user, isLoading, isError } = useUsers(id)
+  const { data: user, isLoading } = useUsers(id)
   const { updateUser, error: updateError } = useUpdateUser()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -24,10 +24,6 @@ const EditUserPage = () => {
     if (id) {
       updateUser(id, name, email)
     }
-  }
-
-  if (isError) {
-    return <div>Error: {isError.message}</div>
   }
 
   if (isLoading) {
