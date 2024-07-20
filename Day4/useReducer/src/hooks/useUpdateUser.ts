@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/router'
 import { useApiReducer } from './useApiReducer'
-import { updateUserFn, UserParams } from '@/utils/api'
+import { updateUserFn, UserParams, User } from '@/utils/api'
 
 /**
  * useUpdateUser 훅

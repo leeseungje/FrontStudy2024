@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useUsers, useUpdateUser } from '@/hooks'
+import { User } from '@/utils/api'
 
 const EditUserPage = () => {
   const pathname = usePathname()
@@ -14,8 +15,8 @@ const EditUserPage = () => {
 
   useEffect(() => {
     if (user && !Array.isArray(user)) {
-      setName(user.name)
-      setEmail(user.email)
+      setName((user as User).name)
+      setEmail((user as User).email)
     }
   }, [user])
 
