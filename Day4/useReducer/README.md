@@ -1,6 +1,6 @@
 **useReducer**<br />
 상태를 어떻게 업데이트 할지 정의하는 함수<br />
-두 개의 인수를 방는데 state, action이 있다.<br />
+두 개의 인수를 받는데 state, action이 있다.<br />
 useReducer는 데이터를 가져오거나 전송하는 동안의 로딩 상태와 오류 상태를 추적하고, 성공적으로 데이터를 가져왔을 때의 상태를 관리
 
 ```javascript
