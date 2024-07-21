@@ -77,7 +77,7 @@ Day3에서 진행한 User CRUD 관련 페이지를 state 구조로 변경해보�
   - MobX
   - Context API
   - Recoil
-  - jotai
+  - jotai [jotai](https://github.com/leeseungje/FrontStudy2024/tree/main/Day4/jotai)
 
 - Next 스터디로 하고 싶은 것 제안하기.
   - 해보고 싶은 것
