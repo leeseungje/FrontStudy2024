@@ -75,7 +75,7 @@ Day3에서 진행한 User CRUD 관련 페이지를 state 구조로 변경해보�
   - useReducer [useReducer](https://github.com/leeseungje/FrontStudy2024/tree/main/Day4/useReducer)
   - Redux
   - MobX
-  - Context API
+  - Context API [useReducer](https://github.com/leeseungje/FrontStudy2024/tree/main/Day4/context)
   - Recoil
   - jotai [jotai](https://github.com/leeseungje/FrontStudy2024/tree/main/Day4/jotai)
 
