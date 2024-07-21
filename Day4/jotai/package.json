@@ -1,0 +1,35 @@
+{
+  "name": "study-api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.51.1",
+    "@tanstack/react-query-devtools": "^5.51.1",
+    "next": "14.2.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "swr": "^2.2.5",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.24.8",
+    "@faker-js/faker": "^8.4.1",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/uuid": "^10.0.0",
+    "axios": "^1.7.2",
+    "babel-preset-next": "link:babel-preset-next",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.4",
+    "jotai": "^2.9.0",
+    "jotai-query-toolkit": "^0.1.23",
+    "typescript": "^5"
+  }
+}
