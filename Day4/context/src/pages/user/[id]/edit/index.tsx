@@ -1,5 +1,3 @@
-'use client'
-
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useUserContext } from '@/context'
@@ -15,7 +13,7 @@ const EditUserPage = () => {
     if (id) {
       fetchUser(id)
     }
-  }, [id, fetchUser])
+  }, [])
 
   useEffect(() => {
     if (data && !Array.isArray(data) && data.id === id) {
@@ -42,23 +40,13 @@ const EditUserPage = () => {
         <div className="form-group">
           <label>
             Name:
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
           </label>
         </div>
         <div className="form-group">
           <label>
             Email:
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </label>
         </div>
         <button type="submit" className="submit">

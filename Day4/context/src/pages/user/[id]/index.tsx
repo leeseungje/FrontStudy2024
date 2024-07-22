@@ -2,18 +2,25 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { useUsers } from '@/hooks'
-import { useDeleteUser } from '@/hooks/useDeleteUser'
+import { useEffect } from 'react'
+import { useUserContext } from '@/context'
 
 const UserPage = () => {
   const pathname = usePathname()
   const id = pathname?.split('/')[2]
-  const { data: user, isLoading } = useUsers(id)
-  const { deleteUser, deleting } = useDeleteUser(id)
+  const { data, isLoading, fetchUser, deleteUser, deleting, deleteUserError } = useUserContext()
 
-  if (isLoading || !user || Array.isArray(user)) {
+  useEffect(() => {
+    if (id) {
+      fetchUser(id)
+    }
+  }, [])
+
+  if (isLoading || !data || Array.isArray(data)) {
     return <div>Loading...</div>
   }
+
+  const user = data
 
   return (
     <div className="user-detail">
@@ -28,13 +35,10 @@ const UserPage = () => {
         <strong>Email:</strong> {user.email}
       </p>
       <div className="actions">
-        <button
-          onClick={deleteUser}
-          disabled={deleting}
-          className={'btn-delete'}
-        >
+        <button onClick={() => deleteUser(user.id)} disabled={deleting} className={'btn-delete'}>
           Delete User
         </button>
+        {deleteUserError && <p style={{ color: 'red' }}>{deleteUserError}</p>}
         <Link href="/user" className={'link'}>
           Back to User List
         </Link>
