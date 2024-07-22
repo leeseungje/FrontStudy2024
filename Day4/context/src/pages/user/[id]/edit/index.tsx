@@ -2,22 +2,27 @@
 
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { useUsers, useUpdateUser } from '@/hooks'
+import { useUserContext } from '@/context'
 
 const EditUserPage = () => {
   const pathname = usePathname()
   const id = pathname?.split('/')[2]
-  const { data: user, isLoading } = useUsers(id)
-  const { updateUser, error: updateError } = useUpdateUser()
+  const { data, isLoading, fetchUser, updateUser, updateUserError } = useUserContext()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
 
   useEffect(() => {
-    if (user && !Array.isArray(user)) {
-      setName(user.name)
-      setEmail(user.email)
+    if (id) {
+      fetchUser(id)
     }
-  }, [user])
+  }, [id, fetchUser])
+
+  useEffect(() => {
+    if (data && !Array.isArray(data) && data.id === id) {
+      setName(data.name)
+      setEmail(data.email)
+    }
+  }, [data, id])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -60,7 +65,7 @@ const EditUserPage = () => {
           Update User
         </button>
       </form>
-      {updateError && <p style={{ color: 'red' }}>{updateError}</p>}
+      {updateUserError && <p style={{ color: 'red' }}>{updateUserError}</p>}
     </div>
   )
 }

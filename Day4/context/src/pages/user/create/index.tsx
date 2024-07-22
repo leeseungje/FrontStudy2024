@@ -1,12 +1,12 @@
 'use client'
 
-import { useCreateUser } from '@/hooks'
+import { useUserContext } from '@/context';
 import { useState } from 'react'
 
 const CreateUserPage = () => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const { createUser, error } = useCreateUser()
+  const { createUser, createUserError } = useUserContext();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -43,7 +43,7 @@ const CreateUserPage = () => {
           Create User
         </button>
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {createUserError && <p style={{ color: 'red' }}>{createUserError}</p>}
     </div>
   )
 }
