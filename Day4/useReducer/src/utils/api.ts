@@ -20,16 +20,13 @@ export interface User {
   email: string
 }
 
-export const createUserFn = async ({
-  name,
-  email,
-}: UserParams): Promise<User> => {
+export const createUserFn = async ({ name, email }: UserParams): Promise<User> => {
   const response = await fetch('/api/user', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ name, email }),
+    body: JSON.stringify({ name, email })
   })
 
   if (!response.ok) {
@@ -40,17 +37,13 @@ export const createUserFn = async ({
   return response.json()
 }
 
-export const updateUserFn = async ({
-  id,
-  name,
-  email,
-}: UserParams): Promise<User> => {
+export const updateUserFn = async ({ id, name, email }: UserParams): Promise<User> => {
   const response = await fetch(`/api/user/${id}`, {
     method: 'PUT',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ id, name, email }),
+    body: JSON.stringify({ id, name, email })
   })
 
   if (!response.ok) {
@@ -62,8 +55,8 @@ export const updateUserFn = async ({
 }
 
 export const deleteUserFn = async (id: string): Promise<void> => {
-  const response = await fetch(`/api/user/${id}`, {
-    method: 'DELETE',
+  const response = await fetch(`/api/user/?id=${id}`, {
+    method: 'DELETE'
   })
 
   if (!response.ok) {
