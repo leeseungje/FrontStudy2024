@@ -1,8 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3001";
-axios.defaults.baseURL = baseURL;
+import axiosInstance from "./axiosConfig";
 
 interface User {
   id: string;
@@ -23,14 +20,14 @@ const initialState: UserState = {
 };
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
-  const response = await axios.get("/api/users");
+  const response = await axiosInstance.get("/api/users");
   return response.data;
 });
 
 export const createUser = createAsyncThunk(
   "users/createUser",
   async (user: Omit<User, "id">) => {
-    const response = await axios.post("/api/users", user);
+    const response = await axiosInstance.post("/api/users", user);
     return response.data;
   }
 );
@@ -38,7 +35,7 @@ export const createUser = createAsyncThunk(
 export const updateUser = createAsyncThunk(
   "users/updateUser",
   async (user: User) => {
-    const response = await axios.put(`/api/users/${user.id}`, user);
+    const response = await axiosInstance.put(`/api/users/${user.id}`, user);
     return response.data;
   }
 );
@@ -46,7 +43,7 @@ export const updateUser = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
   "users/deleteUser",
   async (id: string) => {
-    await axios.delete(`/api/users/${id}`);
+    await axiosInstance.delete(`/api/users/${id}`);
     return id;
   }
 );
