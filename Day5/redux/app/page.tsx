@@ -1,10 +1,14 @@
-import type { Metadata } from "next";
-import { User } from "./components/user/User";
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function IndexPage() {
-  return <User />;
-}
+  const router = useRouter();
 
-export const metadata: Metadata = {
-  title: "Redux Toolkit",
-};
+  useEffect(() => {
+    router.push("/user");
+  }, [router]);
+
+  return null;
+}
