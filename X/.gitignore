@@ -6,7 +6,10 @@
 .pnp.js
 .yarn/install-state.gz
 
-.vscode
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+출처: https://code-boki.tistory.com/112 [개발꾼:티스토리] 
 
 # testing
 /coverage
