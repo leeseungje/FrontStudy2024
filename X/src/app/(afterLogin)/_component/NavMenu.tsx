@@ -60,6 +60,7 @@ const NavItem = ({
 
 const NavMenu = () => {
   const segment = useSelectedLayoutSegment()
+  // 뒤의 pathname 첫번째 호출
   const me = { id: "leeseungje" }
 
   const navItems = [

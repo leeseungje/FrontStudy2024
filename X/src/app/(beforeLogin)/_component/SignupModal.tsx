@@ -1,27 +1,28 @@
-"use client";
+"use client"
 
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler, useState } from "react"
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"
 
-import style from "./modal.module.css";
+import style from "./modal.module.css"
 
 export default function SignupModal() {
-  const [id, setId] = useState();
-  const [password, setPassword] = useState();
-  const [nickname, setNickname] = useState();
-  const [image, setImage] = useState();
-  const [imageFile, setImageFile] = useState<File>();
-  const router = useRouter();
-  const onSubmit = () => {};
+  const [id, setId] = useState()
+  const [password, setPassword] = useState()
+  const [nickname, setNickname] = useState()
+  const [image, setImage] = useState()
+  const [imageFile, setImageFile] = useState<File>()
+  const router = useRouter()
+  const onSubmit = () => {}
   const onClickClose = () => {
-    router.back();
+    router.back()
     // TODO: 뒤로가기가 /home이 아니면 /home으로 보내기
-  };
-  const onChangeId: ChangeEventHandler<HTMLInputElement> = (e) => {};
-  const onChangePassword: ChangeEventHandler<HTMLInputElement> = (e) => {};
-  const onChangeNickname: ChangeEventHandler<HTMLInputElement> = (e) => {};
-  const onChangeImageFile: ChangeEventHandler<HTMLInputElement> = (e) => {};
+  }
+  const onChangeId: ChangeEventHandler<HTMLInputElement> = (e) => {}
+  const onChangePassword: ChangeEventHandler<HTMLInputElement> = (e) => {}
+  const onChangeNickname: ChangeEventHandler<HTMLInputElement> = (e) => {}
+  const onChangeImageFile: ChangeEventHandler<HTMLInputElement> = (e) => {}
+  const handleClick = () => {}
   return (
     <div className={style.modalBackground}>
       <div className={style.modal}>
@@ -95,12 +96,16 @@ export default function SignupModal() {
             </div>
           </div>
           <div className={style.modalFooter}>
-            <button className={style.actionButton} disabled>
+            <button
+              onClick={handleClick}
+              className={style.actionButton}
+              // disabled
+            >
               가입하기
             </button>
           </div>
         </form>
       </div>
     </div>
-  );
+  )
 }
