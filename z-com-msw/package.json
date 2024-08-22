@@ -15,5 +15,8 @@
     "express": "^4.19.2",
     "msw": "^2.3.5",
     "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "tsx": "4.17.0"
   }
 }
