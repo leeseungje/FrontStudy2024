@@ -1,7 +1,7 @@
 "use client"
 
+import style from "../post/styles/post.module.css"
 import ActionButton from "./ActionButton"
-import style from "./post.module.css"
 
 export type ActionButtonsProps = {
   white?: boolean

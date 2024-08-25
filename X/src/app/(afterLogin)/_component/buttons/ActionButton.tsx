@@ -2,7 +2,7 @@
 
 import cx from "classnames"
 
-import style from "./post.module.css"
+import style from "../post/styles/post.module.css"
 
 export type ButtonProps = {
   onClick: () => void

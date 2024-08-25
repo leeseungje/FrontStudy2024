@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import style from "./trend.module.css"
+import style from "./styles/trend.module.css"
 
 export default function Trend() {
   return (

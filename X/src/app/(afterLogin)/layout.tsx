@@ -5,10 +5,10 @@ import Link from "next/link"
 
 import logo from "../../../public/logo_black.svg"
 import FollowRecommend from "./_component/FollowRecommend"
-import LogoutButton from "./_component/LogoutButton"
 import NavMenu from "./_component/NavMenu"
 import RightSearchZone from "./_component/RightSearchZone"
-import TrendSection from "./_component/TrendSection"
+import LogoutButton from "./_component/buttons/LogoutButton"
+import TrendSection from "./_component/trend/TrendSection"
 import style from "./layout.module.css"
 
 export interface AfterLoginLayoutProps {

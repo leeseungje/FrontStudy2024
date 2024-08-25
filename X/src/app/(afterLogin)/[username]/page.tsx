@@ -1,6 +1,6 @@
-import Post from "@/app/(afterLogin)/_component/Post"
+import Post from "@/app/(afterLogin)/_component/post/Post"
 
-import BackButton from "../_component/BackButton"
+import BackButton from "../_component/buttons/BackButton"
 import style from "./profile.module.css"
 
 export default function Profile() {

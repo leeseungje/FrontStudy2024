@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
 
-import style from "./navMenu.module.css"
+import style from "./styles/navMenu.module.css"
 
 export interface NavItemProps {
   href: string

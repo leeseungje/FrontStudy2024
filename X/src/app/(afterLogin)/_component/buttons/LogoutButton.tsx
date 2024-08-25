@@ -1,6 +1,6 @@
 "use client"
 
-import style from "./logoutButton.module.css"
+import style from "./styles/logoutButton.module.css"
 
 export default function LogoutButton() {
   const me = {

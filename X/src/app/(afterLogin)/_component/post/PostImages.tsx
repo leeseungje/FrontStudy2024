@@ -1,7 +1,7 @@
 import cx from "classnames"
 import Link from "next/link"
 
-import style from "./post.module.css"
+import style from "./styles/post.module.css"
 
 type Props = {
   post: {

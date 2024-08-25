@@ -4,10 +4,10 @@ import "dayjs/locale/ko"
 import relativeTime from "dayjs/plugin/relativeTime"
 import Link from "next/link"
 
-import ActionButtons from "./ActionButtons"
+import ActionButtons from "../buttons/ActionButtons"
 import PostArticle from "./PostArticle"
 import PostImages from "./PostImages"
-import style from "./post.module.css"
+import style from "./styles/post.module.css"
 
 dayjs.locale("ko")
 dayjs.extend(relativeTime)

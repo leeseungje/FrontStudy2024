@@ -4,7 +4,7 @@ import { ReactNode } from "react"
 
 import { useRouter } from "next/navigation"
 
-import style from "./post.module.css"
+import style from "./styles/post.module.css"
 
 type Props = {
   children: ReactNode
