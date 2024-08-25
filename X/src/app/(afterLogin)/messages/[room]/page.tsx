@@ -1,4 +1,4 @@
-import BackButton from "@/app/(afterLogin)/_component/buttons/BackButton"
+import BackButton from "@after/_component/buttons/BackButton"
 import { faker } from "@faker-js/faker"
 import cx from "classnames"
 import dayjs from "dayjs"

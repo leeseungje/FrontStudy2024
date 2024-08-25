@@ -18,13 +18,17 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@before/*": ["./src/app/(beforeLogin)/*"],
+      "@after/*": ["./src/app/(afterLogin)/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"],
   "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/app/*"]
-    }
+  "paths": {
+    "@/*": ["./src/app/*"],
+    "@before/*": ["./src/app/(beforeLogin)/*"],
+    "@after/*": ["./src/app/(afterLogin)/*"]
+  }
 }

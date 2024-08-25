@@ -1,6 +1,6 @@
 "use client"
 
-import style from "@/app/(afterLogin)/[username]/profile.module.css"
+import style from "@after/[username]/profile.module.css"
 
 export default function BackButton() {
   return (

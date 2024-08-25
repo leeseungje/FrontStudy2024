@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-import style from "@/app/(afterLogin)/messages/message.module.css"
+import style from "@after/messages/message.module.css"
 import { faker } from "@faker-js/faker"
 import dayjs from "dayjs"
 import "dayjs/locale/ko"

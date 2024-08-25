@@ -1,5 +1,5 @@
-import BackButton from "@/app/(afterLogin)/_component/buttons/BackButton"
-import Post from "@/app/(afterLogin)/_component/post/Post"
+import BackButton from "@after/_component/buttons/BackButton"
+import Post from "@after/_component/post/Post"
 
 import CommentForm from "./_component/CommentForm"
 import style from "./singlePost.module.css"

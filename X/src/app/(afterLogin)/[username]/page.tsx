@@ -1,4 +1,4 @@
-import Post from "@/app/(afterLogin)/_component/post/Post"
+import Post from "@after/_component/post/Post"
 
 import BackButton from "../_component/buttons/BackButton"
 import style from "./profile.module.css"

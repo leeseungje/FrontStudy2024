@@ -1,4 +1,4 @@
-import style from "@/app/(afterLogin)/_component/styles/rightSearchZone.module.css"
+import style from "@after/_component/styles/rightSearchZone.module.css"
 
 export type SearchFormProps = { q?: string }
 

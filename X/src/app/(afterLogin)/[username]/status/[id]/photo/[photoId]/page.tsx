@@ -1,5 +1,5 @@
-import PhotoModal from "@/app/(afterLogin)/@modal/(.)[username]/status/[id]/photo/[photoId]/page"
-import Home from "@/app/(afterLogin)/home/page"
+import PhotoModal from "@after/@modal/(.)[username]/status/[id]/photo/[photoId]/page"
+import Home from "@after/home/page"
 
 type PhotoProps = {
   params: { username: string; id: string; photoId: string }

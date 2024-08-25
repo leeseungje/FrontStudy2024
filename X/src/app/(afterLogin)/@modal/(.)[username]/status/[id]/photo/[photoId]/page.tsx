@@ -1,6 +1,6 @@
-import CommentForm from "@/app/(afterLogin)/[username]/status/[id]/_component/CommentForm"
-import ActionButtons from "@/app/(afterLogin)/_component/buttons/ActionButtons"
-import Post from "@/app/(afterLogin)/_component/post/Post"
+import CommentForm from "@after/[username]/status/[id]/_component/CommentForm"
+import ActionButtons from "@after/_component/buttons/ActionButtons"
+import Post from "@after/_component/post/Post"
 import { faker } from "@faker-js/faker"
 
 import PhotoModalCloseButton from "./_component/PhotoModalCloseButton"
