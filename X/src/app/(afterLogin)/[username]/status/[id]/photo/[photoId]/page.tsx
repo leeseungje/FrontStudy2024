@@ -1,4 +1,4 @@
-import PhotoModal from "@after/@modal/(.)[username]/status/[id]/photo/[photoId]/page"
+import PhotoModal from "@after/@modal/[username]/status/[id]/photo/[photoId]/page"
 import Home from "@after/home/page"
 
 type PhotoProps = {

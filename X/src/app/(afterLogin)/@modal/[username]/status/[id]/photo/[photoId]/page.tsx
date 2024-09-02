@@ -6,7 +6,7 @@ import { faker } from "@faker-js/faker"
 import PhotoModalCloseButton from "./_component/PhotoModalCloseButton"
 import style from "./photoModal.module.css"
 
-export default function PhotoModal() {
+export default function Default() {
   const photo = {
     imageId: 1,
     link: faker.image.urlLoremFlickr(),
