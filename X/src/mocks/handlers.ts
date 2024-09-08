@@ -10,8 +10,7 @@ function generateDate() {
   })
 }
 const User = [
-  { id: "elonmusk", nickname: "Elon Musk", image: "/yRsRRjGO.jpg" },
-  { id: "zerohch0", nickname: "제로초", image: "/5Udwvqim.jpg" },
+  { id: "leeseungje", nickname: "승짱", image: "/1639046.png" },
   { id: "leoturtle", nickname: "레오", image: faker.image.avatar() },
 ]
 const Posts = []
@@ -74,14 +73,14 @@ export const handlers = [
       },
       {
         postId: cursor + 3,
-        User: User[0],
+        User: User[1],
         content: `${cursor + 3} Z.com is so marvelous. I'm gonna buy that.`,
         Images: [],
         createdAt: generateDate(),
       },
       {
         postId: cursor + 4,
-        User: User[0],
+        User: User[1],
         content: `${cursor + 4} Z.com is so marvelous. I'm gonna buy that.`,
         Images: [
           { imageId: 1, link: faker.image.urlLoremFlickr() },
