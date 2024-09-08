@@ -10,7 +10,7 @@ export default async (prevState: any, formData: FormData) => {
   if (!formData.get("name") || !(formData.get("name") as string)?.trim()) {
     return { message: "no_name" }
   }
-  if (
+  if ( 
     !formData.get("password") ||
     !(formData.get("password") as string)?.trim()
   ) {

@@ -1,6 +1,7 @@
 import Post from "@after/_component/post/Post"
 
 import BackButton from "../_component/buttons/BackButton"
+import FollowButton from "../_component/buttons/FllowButton"
 import style from "./profile.module.css"
 
 export default function Profile() {
@@ -24,7 +25,7 @@ export default function Profile() {
           <div>{user.nickname}</div>
           <div>@{user.id}</div>
         </div>
-        <button className={style.followButton}>팔로우</button>
+        <FollowButton />
       </div>
       <div>
         <Post />

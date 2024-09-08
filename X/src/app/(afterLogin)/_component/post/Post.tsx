@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker"
+import { Post as IPost } from "@/model/Post"
 import dayjs from "dayjs"
 import "dayjs/locale/ko"
 import relativeTime from "dayjs/plugin/relativeTime"
@@ -14,28 +14,11 @@ dayjs.extend(relativeTime)
 
 export type PostProps = {
   noImage?: boolean
+  post: IPost
 }
 
-export default function Post({ noImage }: PostProps) {
-  const target = {
-    postId: 1,
-    User: {
-      id: "leeseungje",
-      nickname: "이승제",
-      image: "/1639046.png",
-    },
-    content: "벌써 스터디 입니까????",
-    createdAt: new Date(),
-    Images: [] as { imageId: number; link: string }[],
-  }
-  if (Math.random() > 0.5 && !noImage) {
-    target.Images.push(
-      { imageId: 1, link: faker.image.urlLoremFlickr() },
-      { imageId: 2, link: faker.image.urlLoremFlickr() },
-      { imageId: 3, link: faker.image.urlLoremFlickr() },
-      { imageId: 4, link: faker.image.urlLoremFlickr() },
-    )
-  }
+export default function Post({ noImage, post }: PostProps) {
+  const target = post
   return (
     <PostArticle post={target}>
       <div className={style.postWrapper}>
@@ -58,9 +41,11 @@ export default function Post({ noImage }: PostProps) {
             </span>
           </div>
           <div>{target.content}</div>
-          <div>
-            <PostImages post={target} />
-          </div>
+          {!noImage && (
+            <div>
+              <PostImages post={target} />
+            </div>
+          )}
           <ActionButtons />
         </div>
       </div>

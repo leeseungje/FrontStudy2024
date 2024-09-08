@@ -1,11 +1,17 @@
-"use client";
+"use client"
 
-import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
-import LoginHome from "../_component/LoginHome";
+import LoginHome from "../_component/LoginHome"
 
 export default function Login() {
-  const router = useRouter();
-  router.replace("/i/flow/login");
-  return <LoginHome />;
+  const router = useRouter()
+  const { data: session } = useSession()
+  if (session?.user) {
+    router.replace("/home")
+    return null
+  }
+  router.replace("/i/flow/login")
+  return <LoginHome />
 }

@@ -1,15 +1,14 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
 
-import logo from "../../../../public/nc-logo-blue.png";
-import styles from "./login.module.css";
+import logo from "../../../../public/nc-logo-blue.png"
+import styles from "./login.module.css"
 
 export default function LoginHome() {
   return (
     <>
       <div className={styles.left}>
         <Image src={logo} alt="로고" />
-        트위터임
       </div>
       <div className={styles.right}>
         <h1>Push Play</h1>
@@ -23,5 +22,5 @@ export default function LoginHome() {
         </Link>
       </div>
     </>
-  );
+  )
 }
