@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 import logo from "../../../public/logo_black.svg"
-import FollowRecommend from "./_component/FollowRecommend"
+import FollowRecommendSection from "./_component/Follow/FollowRecommendSection"
 import NavMenu from "./_component/NavMenu"
 import RQProvider from "./_component/RQPrivider"
 import RightSearchZone from "./_component/RightSearchZone"
@@ -67,9 +67,7 @@ const AfterLoginLayout: React.FC<AfterLoginLayoutProps> = async ({
               <TrendSection />
               <div className={style.followRecommend}>
                 <h3>팔로우 추천</h3>
-                <FollowRecommend />
-                <FollowRecommend />
-                <FollowRecommend />
+                <FollowRecommendSection />
               </div>
             </section>
           </div>

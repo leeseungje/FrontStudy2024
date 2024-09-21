@@ -1,16 +1,16 @@
 "use client"
 
-import FollowButton from "./buttons/FllowButton"
-import style from "./styles/followRecommend.module.css"
+import { User } from "@/model/User"
 
-export default function FollowRecommend() {
+import FollowButton from "../buttons/FllowButton"
+import style from "../styles/followRecommend.module.css"
+
+type Props = {
+  user: User
+}
+
+export default function FollowRecommend({ user }: Props) {
   const onFollow = () => {}
-
-  const user = {
-    id: "leeseungje",
-    nickname: "승짱",
-    image: "/1639046.png",
-  }
 
   return (
     <div className={style.container}>

@@ -11,7 +11,7 @@ function generateDate() {
 }
 const User = [
   { id: "leeseungje", nickname: "승짱", image: "/1639046.png" },
-  { id: "leoturtle", nickname: "레오", image: faker.image.avatar() },
+  { id: "leoturtle", nickname: "레오", image: "/234256.png" },
 ]
 const Posts = []
 const delay = (ms: number) =>
@@ -162,21 +162,21 @@ export const handlers = [
       },
       {
         postId: 3,
-        User: User[0],
+        User: User[1],
         content: `${3} 검색결과 ${tag}`,
         Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
         createdAt: generateDate(),
       },
       {
         postId: 4,
-        User: User[0],
+        User: User[1],
         content: `${4} 검색결과 ${tag}`,
         Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
         createdAt: generateDate(),
       },
       {
         postId: 5,
-        User: User[0],
+        User: User[1],
         content: `${5} 검색결과 ${tag}`,
         Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
         createdAt: generateDate(),
@@ -202,21 +202,21 @@ export const handlers = [
       },
       {
         postId: 3,
-        User: User[0],
+        User: User[1],
         content: `${3} ${userId}의 게시글`,
         Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
         createdAt: generateDate(),
       },
       {
         postId: 4,
-        User: User[0],
+        User: User[1],
         content: `${4} ${userId}의 게시글`,
         Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
         createdAt: generateDate(),
       },
       {
         postId: 5,
-        User: User[0],
+        User: User[1],
         content: `${5} ${userId}의 게시글`,
         Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
         createdAt: generateDate(),
@@ -284,14 +284,14 @@ export const handlers = [
       },
       {
         postId: 4,
-        User: User[0],
+        User: User[1],
         content: `${4} 게시글 ${postId}의 답글`,
         Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
         createdAt: generateDate(),
       },
       {
         postId: 5,
-        User: User[0],
+        User: User[1],
         content: `${5} 게시글 ${postId}의 답글`,
         Images: [{ imageId: 1, link: faker.image.urlLoremFlickr() }],
         createdAt: generateDate(),
@@ -303,15 +303,15 @@ export const handlers = [
   }),
   http.get("/api/trends", ({ request }) => {
     return HttpResponse.json([
-      { tagId: 1, title: "제로초", count: 1264 },
-      { tagId: 2, title: "원초", count: 1264 },
-      { tagId: 3, title: "투초", count: 1264 },
-      { tagId: 4, title: "쓰리초", count: 1264 },
-      { tagId: 5, title: "포초", count: 1264 },
-      { tagId: 6, title: "파이브초", count: 1264 },
-      { tagId: 7, title: "식스초", count: 1264 },
-      { tagId: 8, title: "세븐초", count: 1264 },
-      { tagId: 9, title: "나인초", count: 1264 },
+      { tagId: 1, title: "제로초", count: 12 },
+      { tagId: 2, title: "원초", count: 1345 },
+      { tagId: 3, title: "투초", count: 2345356 },
+      { tagId: 4, title: "쓰리초", count: 1234 },
+      { tagId: 5, title: "포초", count: 234 },
+      { tagId: 6, title: "파이브초", count: 546 },
+      { tagId: 7, title: "식스초", count: 678 },
+      { tagId: 8, title: "세븐초", count: 34646 },
+      { tagId: 9, title: "나인초", count: 143645 },
     ])
   }),
 ]
