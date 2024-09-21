@@ -4,13 +4,13 @@ import { Post as IPost } from "@/model/Post"
 import Post from "@after/_component/post/Post"
 import { useQuery } from "@tanstack/react-query"
 
-import { getPostRecommend } from "../_lib/getPostRecommends"
+import { getFollowingPosts } from "../_lib/getFollowingPosts"
 
-export default function PostRecommends() {
+export default function FollowingPosts() {
   // useQuery를 사용하여 데이터를 비동기로 가져옵니다
   const { data, isLoading } = useQuery<IPost[]>({
-    queryKey: ["posts", "recommends"],
-    queryFn: getPostRecommend, // 비동기 함수로 데이터를 가져오는 함수
+    queryKey: ["posts", "followings"],
+    queryFn: getFollowingPosts, // 비동기 함수로 데이터를 가져오는 함수
     staleTime: 60000, // fresh > stale time Infinity 일경우 항상 fresh
     gcTime: 300000,
   })

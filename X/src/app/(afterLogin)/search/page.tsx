@@ -1,7 +1,7 @@
 import SearchForm from "@after/_component/SearchForm"
 import BackButton from "@after/_component/buttons/BackButton"
-import Post from "@after/_component/post/Post"
 
+import SearchResult from "./_component/SearchResult"
 import Tab from "./_component/Tab"
 import style from "./search.module.css"
 
@@ -23,18 +23,7 @@ export default function Search({ searchParams }: Props) {
         <Tab />
       </div>
       <div className={style.list}>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        {/*<SearchResult searchParams={searchParams} />*/}
+        <SearchResult searchParams={searchParams} />
       </div>
     </main>
   )

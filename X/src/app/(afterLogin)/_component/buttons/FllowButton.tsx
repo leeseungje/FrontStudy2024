@@ -14,7 +14,6 @@ export default function FollowButton() {
       return null
     }
   }
-  console.log("data", data)
   return (
     <button className={style.followButton} onClick={handleClick}>
       팔로우

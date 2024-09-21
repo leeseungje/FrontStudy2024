@@ -10,7 +10,7 @@ export default async (prevState: any, formData: FormData) => {
   if (!formData.get("name") || !(formData.get("name") as string)?.trim()) {
     return { message: "no_name" }
   }
-  if ( 
+  if (
     !formData.get("password") ||
     !(formData.get("password") as string)?.trim()
   ) {
@@ -29,11 +29,9 @@ export default async (prevState: any, formData: FormData) => {
         credentials: "include",
       },
     )
-    console.log(response.status)
     if (response.status === 403) {
       return { message: "user_exists" }
     }
-    console.log(await response.json())
     shouldRedirect = true
     await signIn("credentials", {
       username: formData.get("id"),

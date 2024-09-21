@@ -1,5 +1,6 @@
-import SearchForm from "../_component/SearchForm"
-import Trend from "../_component/Trend"
+import SearchForm from "@after/_component/SearchForm"
+import Trend from "@after/_component/trend/Trend"
+
 import style from "./explore.module.css"
 
 export default function Explore() {

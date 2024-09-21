@@ -13,7 +13,7 @@ type Props = {
       image: string
     }
     createdAt: Date
-    Images: { imageId: number; link: string }[]
+    Images: any[]
   }
 }
 
