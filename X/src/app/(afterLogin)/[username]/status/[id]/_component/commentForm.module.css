@@ -27,6 +27,10 @@
     flex: 1;
 }
 
+.postInputSection textarea {
+    color: black;
+}
+
 .postButtonSection {
     width: 100%;
 }
