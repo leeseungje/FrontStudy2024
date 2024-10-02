@@ -15,10 +15,10 @@ import style from "./home.module.css"
 
 export default function Home() {
   const queryClient = new QueryClient() // 클라이언트에서 데이터 처리
-  // queryKey posts, recommends 가지고 있는 키값은 getPostRecommend 함수를 실행한다.
-  queryClient.prefetchQuery({
+  queryClient.prefetchInfiniteQuery({
     queryKey: ["posts", "recommends"],
     queryFn: getPostRecommend,
+    initialPageParam: 0,
   })
   const dehydratedState = dehydrate(queryClient)
 
