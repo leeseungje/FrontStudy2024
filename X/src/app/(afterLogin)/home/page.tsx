@@ -1,5 +1,7 @@
 "use client"
 
+import { Suspense } from "react"
+
 import {
   HydrationBoundary,
   QueryClient,
@@ -8,10 +10,11 @@ import {
 
 import PostForm from "./_component/PostForm"
 import Tab from "./_component/Tab"
-import TabDecider from "./_component/TabDecider"
+import TabDeciderSuspense from "./_component/TabDesiderSuspense"
 import TabProvider from "./_component/TabProvider"
 import { getPostRecommend } from "./_lib/getPostRecommends"
 import style from "./home.module.css"
+import Loading from "./loading"
 
 export default function Home() {
   const queryClient = new QueryClient() // 클라이언트에서 데이터 처리
@@ -28,7 +31,9 @@ export default function Home() {
         <TabProvider>
           <Tab />
           <PostForm />
-          <TabDecider />
+          <Suspense fallback={<Loading />}>
+            <TabDeciderSuspense />
+          </Suspense>
         </TabProvider>
       </HydrationBoundary>
     </main>

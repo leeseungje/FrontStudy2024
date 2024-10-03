@@ -3,15 +3,26 @@
 import { Fragment, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 
+import styles from "@/app/(afterLogin)/home/home.module.css"
 import { Post as IPost } from "@/model/Post"
 import Post from "@after/_component/post/Post"
 import { InfiniteData, useInfiniteQuery } from "@tanstack/react-query"
 
 import { getFollowingPosts } from "../_lib/getFollowingPosts"
+import { default as ErrorComponent } from "../error"
+import Loading from "../loading"
 
 export default function FollowingPosts() {
   // useQuery를 사용하여 데이터를 비동기로 가져옵니다
-  const { data, fetchNextPage, hasNextPage, isFetching } = useInfiniteQuery<
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetching,
+    isPending,
+    isLoading, // isPending && isFetching
+    isError,
+  } = useInfiniteQuery<
     IPost[],
     Object,
     InfiniteData<IPost[]>,
@@ -32,6 +43,8 @@ export default function FollowingPosts() {
     delay: 0,
   })
 
+  const handleReset = () => {}
+
   /**
    * @param {boolean} hasNextPage - 다음페이지 유무
    * @param {function} fetchNextPage - 다음페이지 api 호출
@@ -42,6 +55,15 @@ export default function FollowingPosts() {
       !isFetching && hasNextPage && fetchNextPage()
     }
   }, [inView, isFetching, hasNextPage, fetchNextPage])
+
+  if (isPending) {
+    return <Loading />
+  }
+
+  if (isError) {
+    const errorObj = new Error("An unexpected error occurred")
+    return <ErrorComponent error={errorObj} reset={handleReset} />
+  }
 
   return (
     <>
