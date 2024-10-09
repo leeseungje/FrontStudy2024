@@ -2,6 +2,7 @@
 
 import { Suspense } from "react"
 
+import { auth } from "@/auth"
 import {
   HydrationBoundary,
   QueryClient,
@@ -16,7 +17,8 @@ import { getPostRecommend } from "./_lib/getPostRecommends"
 import style from "./home.module.css"
 import Loading from "./loading"
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth()
   const queryClient = new QueryClient() // 클라이언트에서 데이터 처리
   queryClient.prefetchInfiniteQuery({
     queryKey: ["posts", "recommends"],
@@ -30,7 +32,7 @@ export default function Home() {
       <HydrationBoundary state={dehydratedState}>
         <TabProvider>
           <Tab />
-          <PostForm />
+          <PostForm me={session} />
           <Suspense fallback={<Loading />}>
             <TabDeciderSuspense />
           </Suspense>

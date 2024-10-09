@@ -52,7 +52,7 @@ const AfterLoginLayout: React.FC<AfterLoginLayoutProps> = async ({
                     </svg>
                   </Link>
                 </nav>
-                <LogoutButton />
+                <LogoutButton me={session} />
               </>
             )}
           </div>
