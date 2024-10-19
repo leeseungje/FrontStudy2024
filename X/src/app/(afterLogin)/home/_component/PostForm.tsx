@@ -34,7 +34,13 @@ export default function PostForm({ me }: Props) {
         body: formData,
       })
     },
-    async onSuccess(response, variable) {
+    /**
+     *
+     * @param response return fetch 응답 값
+     * @param variable 상단 mutation에 있는 e: FormEvent 매개변수 값
+     * @param context 제 3의 onMutate retutn값
+     */
+    async onSuccess(response, variable, context) {
       const newPost = await response.json()
       setContent("")
       setPreview([])
