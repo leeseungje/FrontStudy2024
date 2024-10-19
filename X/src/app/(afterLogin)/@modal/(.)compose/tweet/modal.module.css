@@ -82,6 +82,7 @@
     background: white;
     color: black;
     height: 293px;
+    max-height: 289px;
 }
 
 .inputDiv textarea::placeholder {

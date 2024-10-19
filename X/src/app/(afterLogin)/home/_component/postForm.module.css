@@ -31,6 +31,7 @@
 .postInputSection textarea {
     background: white;
     color: black;
+    font-family: Malgun Gothic;
 }
 
 .postInputSection textarea::placeholder {

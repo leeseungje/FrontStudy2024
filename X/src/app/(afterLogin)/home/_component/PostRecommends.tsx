@@ -8,7 +8,7 @@ import { Post as IPost } from "@/model/Post"
 import Post from "@after/_component/post/Post"
 import { InfiniteData, useInfiniteQuery } from "@tanstack/react-query"
 
-import { getPostRecommend } from "../_lib/getPostRecommends"
+import { getPostRecommends } from "../_lib/getPostRecommends"
 import { default as ErrorComponent } from "../error"
 import Loading from "../loading"
 
@@ -30,7 +30,7 @@ export default function PostRecommends() {
     number
   >({
     queryKey: ["posts", "recommends"],
-    queryFn: getPostRecommend, // 비동기 함수로 데이터를 가져오는 함수
+    queryFn: getPostRecommends, // 비동기 함수로 데이터를 가져오는 함수
     initialPageParam: 0, // [[1,2,3,4,5], [6,7,8,9,10]]
     getNextPageParam: (lastPage) => lastPage.at(-1)?.postId,
     staleTime: 60000, // fresh > stale time Infinity 일경우 항상 fresh

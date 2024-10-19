@@ -1,6 +1,7 @@
+import cookie from "cookie"
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
-import { NextResponse } from "next/server"
+import { cookies } from "next/headers"
 
 export const {
   handlers: { GET, POST },
@@ -14,6 +15,7 @@ export const {
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
+        console.log("credentials", credentials)
         const authResponse = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/login`,
           {
@@ -27,6 +29,13 @@ export const {
             }),
           },
         )
+
+        let setCookie = authResponse.headers.get("Set-Cookie")
+        console.log("Set-Cookie", setCookie)
+        if (setCookie) {
+          const parsed = cookie.parse(setCookie)
+          cookies().set("connect.sid", parsed["connect.sid"], parsed) // 브라우저 쿠키 심기
+        }
 
         if (!authResponse.ok) {
           return null

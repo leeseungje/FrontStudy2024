@@ -1,6 +1,7 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { ChangeEventHandler, useRef, useState } from "react"
+import TextareaAutosize from "react-textarea-autosize"
 
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
@@ -9,6 +10,9 @@ import style from "./modal.module.css"
 
 export default function TweetModal() {
   const [content, setContent] = useState()
+  const [preview, setPreview] = useState<
+    Array<{ dataUrl: string; file: File } | null>
+  >([])
   const imageRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
   const onSubmit = () => {}
@@ -19,6 +23,26 @@ export default function TweetModal() {
   const onChangeContent = () => {}
 
   const { data: me } = useSession()
+
+  const onUpload: ChangeEventHandler<HTMLInputElement> = (e) => {
+    e.preventDefault()
+    if (e.target.files) {
+      Array.from(e.target.files).forEach((file, index) => {
+        const reader = new FileReader()
+        reader.onloadend = () => {
+          setPreview((prevPreview) => {
+            const prev = [...prevPreview]
+            prev[index] = {
+              dataUrl: reader.result as string,
+              file,
+            }
+            return prev
+          })
+        }
+        reader.readAsDataURL(file)
+      })
+    }
+  }
 
   return (
     <div className={style.modalBackground}>
@@ -46,11 +70,12 @@ export default function TweetModal() {
               </div>
             </div>
             <div className={style.inputDiv}>
-              <textarea
+              <TextareaAutosize
                 className={style.input}
                 placeholder="무슨 일이 일어나고 있나요?"
                 value={content}
                 onChange={onChangeContent}
+                style={{ height: 200 }}
               />
             </div>
           </div>
@@ -64,6 +89,7 @@ export default function TweetModal() {
                   multiple
                   hidden
                   ref={imageRef}
+                  onChange={onUpload}
                 />
                 <button
                   className={style.uploadButton}

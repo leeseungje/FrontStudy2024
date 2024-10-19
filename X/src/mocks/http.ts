@@ -9,7 +9,7 @@ const port = 9090
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: `${process.env.NEXT_PUBLIC_BASE_URL}`,
     optionsSuccessStatus: 200,
     credentials: true,
   }),

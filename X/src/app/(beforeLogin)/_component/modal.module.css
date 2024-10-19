@@ -139,3 +139,10 @@
     font-weight: bold;
     color: red;
 }
+
+.message {
+    color: red;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}

@@ -30,9 +30,11 @@ export default async (prevState: any, formData: FormData) => {
         credentials: "include",
       },
     )
+    console.log(response.status)
     if (response.status === 403) {
       return { message: "user_exists" }
     }
+    console.log(await response.json())
     shouldRedirect = true
     await signIn("credentials", {
       username: formData.get("id"),
@@ -47,4 +49,5 @@ export default async (prevState: any, formData: FormData) => {
   if (shouldRedirect) {
     redirect("/home") // try/catch문 안에서 X
   }
+  return { message: null }
 }

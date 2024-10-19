@@ -1,5 +1,3 @@
-"use client"
-
 import { Suspense } from "react"
 
 import { auth } from "@/auth"
@@ -13,18 +11,21 @@ import PostForm from "./_component/PostForm"
 import Tab from "./_component/Tab"
 import TabDeciderSuspense from "./_component/TabDesiderSuspense"
 import TabProvider from "./_component/TabProvider"
-import { getPostRecommend } from "./_lib/getPostRecommends"
+import { getPostRecommends } from "./_lib/getPostRecommends"
 import style from "./home.module.css"
 import Loading from "./loading"
 
 export default async function Home() {
-  const session = await auth()
-  const queryClient = new QueryClient() // 클라이언트에서 데이터 처리
-  queryClient.prefetchInfiniteQuery({
+  const session = await auth() // 세션 정보 가져오기
+  const queryClient = new QueryClient()
+
+  // 추천 포스트 데이터를 미리 패칭
+  await queryClient.prefetchInfiniteQuery({
     queryKey: ["posts", "recommends"],
-    queryFn: getPostRecommend,
+    queryFn: getPostRecommends,
     initialPageParam: 0,
   })
+
   const dehydratedState = dehydrate(queryClient)
 
   return (
