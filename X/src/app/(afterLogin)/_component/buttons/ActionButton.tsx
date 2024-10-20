@@ -1,12 +1,14 @@
 "use client"
 
+import { MouseEventHandler } from "react"
+
 import cx from "classnames"
 
 import style from "../post/styles/post.module.css"
 
 export type ButtonProps = {
-  onClick: () => void
-  count: number
+  onClick: MouseEventHandler<HTMLButtonElement>
+  count: number | string
   iconPath: string
   buttonStyle: string
   activeStyle: string
