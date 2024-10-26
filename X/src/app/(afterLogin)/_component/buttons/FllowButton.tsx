@@ -1,22 +1,14 @@
 "use client"
 
-import { useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
+import { MouseEventHandler } from "react"
 
-import style from "../../[username]/profile.module.css"
+interface Props {
+  followed: boolean
+  handleFollow: MouseEventHandler<HTMLButtonElement>
+}
 
-export default function FollowButton() {
-  const { data } = useSession()
-  const router = useRouter()
-  const handleClick = () => {
-    if (!data?.user) {
-      router.replace("/login")
-      return null
-    }
-  }
+export default function FollowButton({ followed, handleFollow }: Props) {
   return (
-    <button className={style.followButton} onClick={handleClick}>
-      팔로우
-    </button>
+    <button onClick={handleFollow}>{followed ? "팔로잉" : "팔로우"}</button>
   )
 }
