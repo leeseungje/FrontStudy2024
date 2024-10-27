@@ -1,8 +1,14 @@
 "use client"
 
+import { MouseEventHandler } from "react"
+
+import { useFollow } from "@/app/hooks"
 import { User } from "@/model/User"
 import BackButton from "@after/_component/buttons/BackButton"
-import { useQuery } from "@tanstack/react-query"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+import cx from "classnames"
+import { produce } from "immer"
+import { useSession } from "next-auth/react"
 
 import { getUser } from "../_lib/getUser"
 import style from "../profile.module.css"
@@ -11,6 +17,7 @@ type Props = {
   username: string
 }
 export default function UserInfo({ username }: Props) {
+  const { data: session } = useSession()
   const { data: user, error } = useQuery<
     User,
     Object,
@@ -53,6 +60,15 @@ export default function UserInfo({ username }: Props) {
   if (!user) {
     return null
   }
+  const followed = !!user.Followers?.find((v) => v.id === session?.user?.email)
+  const { toggleFollow } = useFollow()
+
+  const onFollow: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.stopPropagation()
+    e.preventDefault()
+    console.log("follow", followed, user.id)
+    toggleFollow(user.id, followed)
+  }
   return (
     <>
       <div className={style.header}>
@@ -67,7 +83,14 @@ export default function UserInfo({ username }: Props) {
           <div>{user.nickname}</div>
           <div>@{user.id}</div>
         </div>
-        <button className={style.followButton}>팔로우</button>
+        {user.id !== session?.user?.email && (
+          <button
+            onClick={onFollow}
+            className={cx(style.followButton, followed && style.followed)}
+          >
+            {followed ? "팔로잉" : "팔로우"}
+          </button>
+        )}
       </div>
     </>
   )
