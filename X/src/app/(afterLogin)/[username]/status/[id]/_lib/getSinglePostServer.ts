@@ -1,10 +1,10 @@
-import { Post } from "@/model/Post"
-import { QueryFunction } from "@tanstack/query-core"
+import { cookies } from "next/headers"
 
-export const getSinglePost: QueryFunction<
-  Post,
-  [_1: string, _2: string]
-> = async ({ queryKey }) => {
+export const getSinglePostServer = async ({
+  queryKey,
+}: {
+  queryKey: [string, string]
+}) => {
   const [_1, id] = queryKey
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/posts/${id}`,
@@ -13,6 +13,7 @@ export const getSinglePost: QueryFunction<
         tags: ["posts", id],
       },
       credentials: "include",
+      headers: { Cookie: cookies().toString() },
     },
   )
   // The return value is *not* serialized

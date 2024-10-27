@@ -1,9 +1,11 @@
 import { auth } from "@/auth"
+import { User } from "@/model/User"
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query"
+import { Metadata } from "next"
 
 import UserInfo from "./_component/UserInfo"
 import UserPosts from "./_component/UserPosts"
@@ -13,6 +15,16 @@ import style from "./profile.module.css"
 
 type Props = {
   params: { username: string }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const user: User = await getUserServer({
+    queryKey: ["users", params.username],
+  })
+  return {
+    title: `${user.nickname} (${user.id})`,
+    description: `${user.nickname} (${user.id}) - 프로필`,
+  }
 }
 
 export default async function Profile({ params }: Props) {

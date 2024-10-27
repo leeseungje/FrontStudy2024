@@ -6,6 +6,7 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query"
+import { Metadata } from "next"
 
 import PostForm from "./_component/PostForm"
 import Tab from "./_component/Tab"
@@ -14,6 +15,11 @@ import TabProvider from "./_component/TabProvider"
 import { getPostRecommends } from "./_lib/getPostRecommends"
 import style from "./home.module.css"
 import Loading from "./loading"
+
+export const metadata: Metadata = {
+  title: "홈",
+  description: "홈",
+}
 
 export default async function Home() {
   const session = await auth() // 세션 정보 가져오기
