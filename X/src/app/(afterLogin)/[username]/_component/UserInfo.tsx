@@ -5,19 +5,18 @@ import { MouseEventHandler } from "react"
 import { useFollow } from "@/app/hooks"
 import { User } from "@/model/User"
 import BackButton from "@after/_component/buttons/BackButton"
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query"
 import cx from "classnames"
-import { produce } from "immer"
-import { useSession } from "next-auth/react"
+import { Session } from "next-auth"
 
 import { getUser } from "../_lib/getUser"
 import style from "../profile.module.css"
 
 type Props = {
   username: string
+  session: Session | null
 }
-export default function UserInfo({ username }: Props) {
-  const { data: session } = useSession()
+export default function UserInfo({ username, session }: Props) {
   const { data: user, error } = useQuery<
     User,
     Object,
@@ -76,21 +75,28 @@ export default function UserInfo({ username }: Props) {
         <h3 className={style.headerTitle}>{user.nickname}</h3>
       </div>
       <div className={style.userZone}>
-        <div className={style.userImage}>
-          <img src={user.image} alt={user.id} />
+        <div className={style.userRow}>
+          <div className={style.userImage}>
+            <img src={user.image} alt={user.id} />
+          </div>
+          <div className={style.userName}>
+            <div>{user.nickname}</div>
+            <div>@{user.id}</div>
+          </div>
+          {user.id !== session?.user?.email && (
+            <button
+              onClick={onFollow}
+              className={cx(style.followButton, followed && style.followed)}
+            >
+              {followed ? "팔로잉" : "팔로우"}
+            </button>
+          )}
         </div>
-        <div className={style.userName}>
-          <div>{user.nickname}</div>
-          <div>@{user.id}</div>
+        <div className={style.userFollower}>
+          <div>{user._count.Followers} 팔로워</div>
+          &nbsp;
+          <div>{user._count.Followings} 팔로우 중</div>
         </div>
-        {user.id !== session?.user?.email && (
-          <button
-            onClick={onFollow}
-            className={cx(style.followButton, followed && style.followed)}
-          >
-            {followed ? "팔로잉" : "팔로우"}
-          </button>
-        )}
       </div>
     </>
   )

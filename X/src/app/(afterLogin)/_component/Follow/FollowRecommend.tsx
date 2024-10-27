@@ -4,9 +4,7 @@ import { MouseEventHandler } from "react"
 
 import { useFollow } from "@/app/hooks"
 import { User } from "@/model/User"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
 import cx from "classnames"
-import { produce } from "immer"
 import { useSession } from "next-auth/react"
 import Link from "next/link"
 
