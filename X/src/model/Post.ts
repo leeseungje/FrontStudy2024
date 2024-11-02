@@ -20,4 +20,6 @@ export interface Post {
     Reposts: number
     Comments: number
   }
+  Original?: Post // 재게시
+  Parent?: Post // 답글
 }

@@ -44,6 +44,7 @@ const AfterLoginLayout: React.FC<AfterLoginLayoutProps> = async ({
                       <span>게시하기</span>
                       <svg
                         viewBox="0 0 24 24"
+                        width={24}
                         aria-hidden="true"
                         className="r-jwli3a r-4qtqp9 r-yyyyoo r-1472mwg r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-lrsllp"
                       >
