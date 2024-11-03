@@ -13,7 +13,7 @@ export interface Post {
   createdAt: Date
   Images: PostImage[]
   Hearts: UserID[]
-  Reports: UserID[]
+  Reposts: UserID[]
   Comments: UserID[]
   _count: {
     Hearts: number

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import logo from "../../../../public/nc-logo-blue.png"
+import logo from "../../../../public/ci_ncids.png"
 import styles from "./login.module.css"
 
 export default function LoginHome() {

@@ -12,7 +12,7 @@ export type ButtonProps = {
   iconPath: string
   buttonStyle: string
   activeStyle: string
-  isActive: boolean
+  isActive?: boolean
   white?: boolean
 }
 
