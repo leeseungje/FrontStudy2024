@@ -10,9 +10,11 @@ export const getSinglePostServer = async ({
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/posts/${id}`,
     {
       next: {
+        revalidate: 3600,
         tags: ["posts", id],
       },
       credentials: "include",
+      cache: "no-store",
       headers: { Cookie: cookies().toString() },
     },
   )
